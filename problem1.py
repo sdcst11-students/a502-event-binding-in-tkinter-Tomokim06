@@ -18,7 +18,7 @@ import tkinter as tk
 from tkinter import *
 
 win = tk.Tk()
-win.geometry("400x400")
+win.geometry("400x200")
 
 eoutput = StringVar()
 eoutput.set("output")
@@ -30,10 +30,14 @@ def clickFunction(event):
     b = float(b)
     c = float(c)
     a = 1
-
-    (a**2) + (2*a*b) + (b**2) = (a + b)**2
-    (a**2) - (2*a*b) + (b**2) = (a - b)**2
-    answer=(f"(X+{b})(X+{c})")
+    disc = (b**2) -(4*a*c)
+    if disc >=0:
+        root1 =int((-b+(disc)**0.5)/(2*a))
+        root2 =int((-b-(disc)**0.5)/(2*a))
+        
+        answer=(f"(X + {- root1})(X + {- root2})")
+    else:
+        answer="cannot be factored"
 
     a_entry.delete(0,END)
     a_entry.insert(0,answer)
@@ -49,7 +53,7 @@ e2 = Entry(win, width=5)
 b1 = Button(win, text="Click to factor trinomial")
 b1.bind("<Button>",clickFunction)
 
-a_entry = Entry(win, width=10, textvariable=eoutput)
+a_entry = Entry(win, width=20, textvariable=eoutput)
 
 instructions.place(x=1,y=1)
 l1.place(x=50,y=40)
