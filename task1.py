@@ -28,7 +28,7 @@ def clickFunction(event):
     grade = int(grade)
     answer = (f"{name}, {number}, {grade}")
 
-    a_entry.delete(0,END)
+    a_entry.delete(0,tk.END)
     a_entry.insert(0,answer)
 
 l1 = Label(win, text="Enter name")
